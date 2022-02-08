@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    Name<input type="text" id="name" /><label id="msgname" style="color:red;"></label><br /><br />
+    Email<input type="email" id="email" /><label id="msgemail" style="color:red;"></label><br /><br />
+    Mobile No<input type="text" id="mobileno" /><label id="msgmobileno" style="color:red;"></label><br /><br />
+    <button onclick="register()">Register</button>
+    <script>
+        function register()
+        {
+            document.getElementById("msgname").innerHTML = "";
+            document.getElementById("msgemail").innerHTML = "";
+            document.getElementById("msgmobileno").innerHTML = "";
+            let validated = true;
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let mobileno = document.getElementById("mobileno").value.trim();
+
+            if(name == "")
+            {
+                document.getElementById("msgname").innerHTML = "Please enter name";
+                validated = false;
+            }
+            if(email == "")
+            {
+                document.getElementById("msgemail").innerHTML = "Please enter email";
+                validated = false;
+            }
+            if(mobileno == "")
+            {
+                document.getElementById("msgmobileno").innerHTML = "Please enter mobile no";
+                validated = false;
+            }            
+            if(validateemail(email) == false)
+            {
+                document.getElementById("msgemail").innerHTML = "Please enter valid email";
+                validated = false;
+            }
+
+            if(validatemobileno(mobileno) == false)
+            {
+                document.getElementById("msgmobileno").innerHTML = "Please enter valid mobile no";
+                validated = false;
+            }
+            return validated;
+        }
+
+
+       
+
+
+    </script>
+</body>
+</html>

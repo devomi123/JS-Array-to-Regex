@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [1, 2, 4, 2, 5, 1];
+        console.log(a);
+        a.sort();
+        console.log(a);
+
+        // a.forEach(myfunction);
+        
+        // console.log(a);
+
+        // function myfunction(value, index, arr)
+        // {
+        //     arr[index] = arr[index] * arr[index];
+        // }
+
+        a.push(50);
+        console.log(a);
+        a.pop();
+        a.pop();
+        console.log(a);
+
+        let x = "abcd";
+        console.log(typeof(x));
+
+        let b = a.join("*");
+        console.log(b);
+
+        let y = a[0];
+        a[0] = a[4];
+        a[4] = y;
+        console.log(a);
+
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        console.log(fruits);
+        fruits.splice(2, 1, "Lemon", "Kiwi");
+        console.log(fruits);
+
+        let newarray = fruits.slice(2, 3);
+        console.log(newarray);
+
+        fruits.sort();
+        console.log(fruits);
+        fruits.reverse();
+        console.log(fruits);
+
+
+        let aa = [11, 12, 112, 22, 21, 212];
+        console.log(aa);
+        aa.sort(function(a, b){return a - b});
+        console.log(aa);
+        aa.sort(function(a, b){return  b - a});
+        console.log(aa);
+
+    </script>
+</body>
+</html>

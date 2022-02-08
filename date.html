@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let getFormattedDate = (date) =>{
+            let strdate = d.getDate().toString().padStart(2, 0) + "/" + (d.getMonth() + 1).toString().padStart(2, 0) + "/" + d.getFullYear();
+            return strdate;
+        }
+
+        let d = new Date();
+        document.write(d.toString() + "<br />");
+        console.log(d.getDate());
+        console.log(d.getDay());
+        console.log(d.getMonth());
+        console.log(d.getFullYear());
+
+        
+        let strdate = getFormattedDate(d);
+        console.log(strdate);
+
+        // let d1 = new Date(2000, 5, 12);
+        // document.write(d1);
+        // document.write("<br />");
+        // let d2 = new Date(12132323232);
+        // document.write(d2);
+    </script>
+</body>
+</html>
