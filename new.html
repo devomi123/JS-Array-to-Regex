@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: aquamarine; text-align: center;">
+    <div id="valname"></div>
+    <label id="name"> Enter Name :</label>
+    <input id="nm" type="text" placeholder="Enter Name">
+    <br><br>
+    <div id="valname1"></div>
+    <label id="add"> Enter Address :</label>
+    <input id="address" type="text" placeholder="Enter Address">
+    <br><br>
+    <div id="valname2"></div>
+    <label id="mb">Enter Mobile_No :</label>
+    <input id="mob" type="mobno" placeholder="Enter Mobile_No">
+    <br><br>
+    <div id="valname3"></div>
+    <label id="em"> Enter Email_Id :</label>
+    <input id="mail" type="email" placeholder="Enter Email_Id">
+    <br><br>
+    <label> Gender : </label>
+    <input type="radio" id="Male" value=" " name="Gender"> <label> Male</label>
+    <input type="radio" id="Female" value="" name="Gender"> <label> Female</label>
+    <br><br>
+    <div id="pass"></div>
+        <label id="lablepss"> password :</label>
+        <input id="word" type="password"><br><br>
+         <div id="cp" ></div>
+        <label id="lablepss">Confirm password :</label>
+        <input id="confirm" type="password"><br><br>
+
+
+        <div id="caption" style="border: 1px solid black; width: 100px;" >000</div>
+        <label id="capmsg"> Captcha :</label><br><br>
+        <input id="captcha" type="number"><br><br>
+        <button  onclick="capt()">Reload</button>
+
+    <button onclick="sub()">Submit</button>
+
+    <!-- ---------------------------------------------------------- JS------------------------------------------- -->
+
+    <script>
+        function sub() {
+                       document.getElementById('valname').innerHTML = "";
+                       let name = document.getElementById('nm').value;
+
+                        if (name == "") {
+                            document.getElementById('valname').innerHTML = "Enter Your Name";
+                           return ;
+                         }
+
+
+                //   adresss
+                           document.getElementById('valname1').innerHTML = "";
+                           let add = document.getElementById('address').value; 
+
+
+                           if (add == "") {
+                            document.getElementById('valname1').innerHTML = "Enter your Address";
+                            return ;
+                        }
+
+            //   moblie no
+                           document.getElementById('valname2').innerHTML = "";
+                           let mob = document.getElementById('mob').value;
+                           let mobpat = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/;
+                            if (mob == "") {
+                            document.getElementById('valname2').innerHTML = "Enter your Mobile_no";
+                            return ;
+                        }
+                        if(mobpat.test(mob)== false){
+                            document.getElementById("valname2").innerHTML = "Enter valid Mob_no";
+               }
+            //    emailId
+
+            document.getElementById("valname3").innerHTML = "";
+            let email = document.getElementById("mail").value;
+            let pattern = /^\w+([\.-]?\w+)*@\w+([\-]?\w+)*(\.\w{2,3})+$/;
+            if(email == "") {
+                document.getElementById("valname3").innerHTML = "Enter Email_Id";
+            }
+
+            if(pattern.test(email) == false) {
+                document.getElementById("valname3").innerHTML = "Enter correct Email";
+                // alert(pattern.test(email));
+            }
+
+         
+             password
+             
+            document.getElementById("pass").innerHTML= "";
+            let password = document.getElementById("word").value;
+            let passpat = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+            if(password == ""){
+                document.getElementById("pass").innerHTML ="Enter Password";
+                return ;
+            }
+            if(passpat.test(password) == false){
+                document.getElementById("pass").innerHTML=" Enter Valid Password";
+            }
+            
+            // Confirm Password
+            document.getElementById("cp").innerHTML= "";
+            let cpassword = document.getElementById("confirm").value;
+            if(password != cpassword){
+                document.getElementById("cp").innerHTML="not confirm";
+                return ;
+            }
+            
+    //   captcha
+             document.getElementById("capmsg").innerHTML= "";
+             let cheakcap = document.getElementById("captcha").value;
+             let read = document.getElementById("caption").innerHTML;
+             if(cheakcap == ""){
+                  document.getElementById("capmsg").innerHTML="Enter Captcha";
+                  }
+                   
+            else if(cheakcap !=read){
+                document.getElementById("capmsg").innerHTML = "not Correct";
+             }
+             else{
+             document.getElementById("capmsg").innerHTML = "success";
+            }s
+
+        }
+
+      function capt(){
+            let x = Math.round(Math.random() * 10000);
+            document.getElementById("caption").innerHTML = x;
+      }
+     capt();
+    </script>

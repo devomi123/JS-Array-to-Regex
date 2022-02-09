@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: aquamarine; text-align: center;">
+    <div id="valname"></div>
+    <label id="name"> Enter Name :</label>
+    <input id="nm" type="text" placeholder="Enter Name">
+    <br><br>
+    <div id="valname1"></div>
+    <label id="add"> Enter Address :</label>
+    <input id="address" type="text" placeholder="Enter Address">
+    <br><br>
+    <div id="valname2"></div>
+    <label id="mb">Enter Mobile_No :</label>
+    <input id="mob" type="mobno" placeholder="Enter Mobile_No">
+    <br><br>
+    <div id="valname3"></div>
+    <label id="em"> Enter Email_Id :</label>
+    <input id="mail" type="email" placeholder="Enter Email_Id">
+    <br><br>
+    <label> Gender : </label>
+    <input type="radio" id="Male" value=" " name="Gender"> <label> Male</label>
+    <input type="radio" id="Female" value="" name="Gender"> <label> Female</label>
+    <br><br>
+    <button onclick="sub()">Submit</button>
+
+    <script>
+        function sub() {
+            let name = document.getElementById('nm').value;
+            let add = document.getElementById('address').value;
+            let mob = document.getElementById('mob').value;
+
+
+
+            document.getElementById('valname').innerHTML = "";
+            document.getElementById('valname1').innerHTML = "";
+            document.getElementById('valname2').innerHTML = "";
+
+
+
+            if (name == "") {
+                document.getElementById('valname').innerHTML = "Enter Your Name";
+            }
+            if (add == "") {
+                document.getElementById('valname1').innerHTML = "Enter your Address";
+            }
+            if (mob == "") {
+                document.getElementById('valname2').innerHTML = "Enter your Mobile_no";
+            }
+
+            document.getElementById('valname3').innerHTML = "";
+            let mail = document.getElementById('mail').value;
+             let  pattern=/^\w+([\.-]?\w+)*@\w+([\-]?\w+)*(\.\w{2,3})+$/;
+            if (mail == "") {
+                document.getElementById('valname3').innerHTML = "Enter Email_Id";
+            }
+        
+            if (pattern.test(mail) == false) {
+                document.getElementById('valname3').innerHTMl = "Enter correct Email";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
